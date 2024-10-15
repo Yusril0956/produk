@@ -1,0 +1,360 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Monsterrat", sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: radial-gradient(circle, #42A5F5, #0D47A1);
+}
+
+:root{
+    --biruMuda: #9fffff;
+    --biruTua: #0D47A1;
+    --putih: #FFFFFF;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--biruTua);
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    z-index: 10000;
+}
+
+.navbar img{
+    width: 60px;
+    height: 100%px;
+    margin-left: 30px;
+}
+
+.navigation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation a{
+    text-decoration: none;
+    padding : 20px;
+    color: var(--biruMuda);
+    font-style: bold;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: 0.5s;
+    padding: 10px 15px;
+    margin: 0 20px;
+}
+
+.navigation a:hover{
+    background: var(--biruMuda);
+    color: var(--biruTua);
+}
+
+.navbar .btn{
+    padding: 10px 15px;
+    margin-right: 20px;
+}
+
+.navbar .btn .login{
+    padding : 10px 15px;
+    background: var(--biruMuda);
+    color: var(--biruTua);
+    border-radius: 13px;
+    margin-right: 20px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navbar .btn .sign-up{
+    padding : 10px 15px;
+    background: var(--biruTua);
+    color: var(--putih);
+    border-radius: 13px;
+    margin-right: 20px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.home{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home img{
+    height: 500px;
+    width: 600px;
+    top: 90px;
+    left: 10px;
+    mask-image: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 1) 0%,    /* Atas (tidak transparan) */
+        rgba(0, 0, 0, 0.7) 40%, /* Tengah (sedikit transparan) */
+        rgba(0, 0, 0, 0.3) 90%, /* Lebih transparan di bagian bawah tengah */
+        rgba(0, 0, 0, 0) 100%   /* Transparan penuh di bagian bawah */
+    );
+}
+
+.home-right{
+    align-items: left;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.home-right h1{
+    font-weight: 900 bolder;
+    font-size: xx-large;
+    text-align: left;
+    position: relative;
+    color: var(--putih);
+}
+
+.home-right p{
+    margin: 20px 0;
+    padding-right: 50px;
+    text-align: left;
+    color: var(--putih);
+}
+
+.home-right button{
+    padding: 10px 30px;
+    left: 10px;
+    width: 150px;
+    cursor: pointer;
+    color: var(--putih);
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    z-index: 0;
+    position: relative;
+}
+
+.home-right button::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0D47A1;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+}
+
+.home-right button::before{
+    content: "";
+    background: linear-gradient(45deg,
+    #0D47A1, #1976D2 ,#1E88E5,  #42A5F5,
+    #BBDEFB, #E1F5FE, #00ACC1, #0D47A1);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    height: calc(100% + 8px);
+    width: calc(100% + 8px);
+    filter: blur(8px);
+    transition: opacity .3s ease-in-out;
+    border-radius: 12px;
+    opacity: 0;
+    animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing{
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+.home-right button:hover::before{
+    opacity: 1;
+}
+
+.home-right button:active:after{
+    background: transparent;
+}
+
+.about{
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.about h1{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: var(--biruTua);
+    margin: 20px 0;
+    font-weight: 900;
+}
+
+.about .description{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about .description .p{
+    background: #BBDEFB;
+    margin: 10px 20px;
+    padding: 20px 20px;
+    border-radius: 30px;
+    /* font-size: 30px; */
+}
+
+.about .image{
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.about .image .image-top, .image-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about .image .image-top .image1{
+    background: url(image/img1.png) no-repeat;
+    background-size: cover;
+    width: 288px;
+    height: 162px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top-left-radius: 30px;
+}
+
+.about .image .image-top .image2{
+    background: url(image/img2.png) no-repeat;
+    background-size: cover;
+    width: 288px;
+    height: 162px;
+    border-top-right-radius: 30px
+}
+
+.about .image .image-bottom .image3{
+    background: url(image/img3.png) no-repeat;
+    background-size: cover;
+    width: 288px;
+    height: 162px;
+    border-bottom-left-radius: 30px
+}
+
+.about .image .image-bottom .image4{
+    background: url(image/img4.png) no-repeat;
+    background-size: cover;
+    width: 288px;
+    height: 162px;
+    border-bottom-right-radius: 30px
+}
+
+.product{
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.product h1{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: var(--putih);
+    margin: 20px 0;
+    font-weight: 900;
+}
+
+.product .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product .wrapper .card{
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    background: var(--putih);
+    overflow: hidden;
+    margin: 10px 30px;
+}
+
+.product .wrapper .card .card-image{
+    width: 200px;
+    height: 121px;
+}
+
+.product .wrapper .card .card-description{
+    color: black;
+    padding: 0px;
+}
+
+.product .wrapper .card .card-button{
+    background: var(--biruTua);
+}
+
+.review{
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.review h1{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: var(--putih);
+    margin: 20px 0;
+    font-weight: 900;
+}
+
+.review .review-description{
+    background-color: var(--putih);
+    margin: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+}
+
+.review .review-description img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    margin : 20px;
+}
+
+.review .review-description .review-right{
+    flex-direction: column;
+    margin: 20px 30px;
+}
+
+.review .review-description .review-right p, .review .review-description .review-right .fa-star{
+    margin: 10px;
+}
